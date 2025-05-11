@@ -1,33 +1,92 @@
-# Gradle files
-.gradle/
-build/
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Sorpresa para Mamá!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f8bbd0;
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-# Local configuration file (sdk path, etc)
-local.properties
+    .Carta_love {
+      --letter-bg: #fff;
+      --letter-text: #c0392b;
+      background: var(--letter-bg);
+      color: var(--letter-text);
+      padding: 2em 3em;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 350px;
+      position: relative;
+      animation: aparecer 2s ease-in-out forwards;
+      opacity: 0;
+    }
 
-# Log/OS Files
-*.log
+    @keyframes aparecer {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.apk
-output.json
+    #sorpresa {
+      display: none;
+      margin-top: 1.5em;
+      font-size: 1.1em;
+      color: #6a1b9a;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
 
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-# Keystore files
-*.jks
-*.keystore
+    button {
+      margin-top: 1.5em;
+      padding: 0.7em 1.5em;
+      font-size: 1em;
+      border: none;
+      background: #ec407a;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-# Google Services (e.g. APIs or Firebase)
-google-services.json
+    button:hover {
+      background: #d81b60;
+    }
+  </style>
+</head>
+<body>
 
-# Android Profiling
-*.hprof
+  <div class="Carta_love">
+    <h1>¡Feliz Día de la Madre!</h1>
+    <p>Mamá, tengo algo especial para ti...</p>
+    <button onclick="mostrarSorpresa()">Ver Sorpresa</button>
+    <div id="sorpresa">
+      <p>Eres la persona más especial en mi vida. Gracias por tanto amor. ¡Te amo!</p>
+      <audio controls autoplay>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+      </audio>
+    </div>
+  </div>
+
+  <script>
+    function mostrarSorpresa() {
+      document.getElementById("sorpresa").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
